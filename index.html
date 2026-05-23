@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akash S | Cybersecurity Practitioner</title>
+  <link rel="shortcut icon" href="assets/img/NIRAI LOGO .png" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=IM+Fell+English:ital@0;1&family=Courier+Prime&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+
+  <!-- Intro Loader -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <div class="loader__bar"></div>
+      <p class="loader__text" id="loader-text">Initializing...</p>
+      <span class="loader__pct" id="loader-pct">0%</span>
+    </div>
+  </div>
+
+  <!-- Fixed video -->
+  <div class="vbg" aria-hidden="true">
+    <video autoplay muted loop playsinline>
+      <source src="assets/img/bg-video.mp4" type="video/mp4">
+    </video>
+    <div class="vbg__scrim"></div>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav__wrap">
+      <a href="#hero" class="nav__logo"><span class="term-user">Akash</span><span class="term-at">@</span><span class="term-host">s</span><span class="term-tilde">~</span><span class="term-cursor">▋</span></a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="pages/certificates.html" target="_blank">Certs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav__end">
+        <button class="tog" id="tog" aria-label="Toggle theme">
+          <i class="ri-sun-line tog__sun"></i>
+          <span class="tog__pill"><span class="tog__knob"></span></span>
+          <i class="ri-moon-line tog__moon"></i>
+        </button>
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero" class="hero reveal">
+      <div class="wrap hero__wrap">
+        <div class="hero__content">
+          <p class="hero__tag">Security · Forensics · CTF</p>
+          <h1 class="hero__name" data-text="Akash S">Akash S</h1>
+          <h2 class="hero__role">Cybersecurity<br><em>Practitioner.</em></h2>
+          <p class="hero__bio">A product shipped. Exams still ongoing.</p>
+          <div class="hero__cta">
+            <a href="#projects" class="cta-link magnetic">View Work <i class="ri-arrow-right-line"></i></a>
+            <a href="certs/AkashS-Resume.pdf" target="_blank" class="cta-link cta-link--dim">Resume <i class="ri-download-line"></i></a>
+          </div>
+          <div class="hero__nums">
+            <div class="num tilt-card"><span class="num__n">04+</span><span class="num__l">CTFs</span></div>
+            <div class="num tilt-card"><span class="num__n">03+</span><span class="num__l">Projects</span></div>
+            <div class="num tilt-card"><span class="num__n">01</span><span class="num__l">Venture</span></div>
+          </div>
+        </div>
+        <div class="hero__img-wrap float-slow">
+          <div class="hero__img-frame">
+            <img src="assets/img/profile.png" alt="Akash S" class="hero__img">
+          </div>
+          <div class="hero__img-badge">
+            <i class="ri-shield-keyhole-line"></i>
+            <span>Security First</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section reveal">
+      <div class="wrap">
+        <h2 class="s-title" data-parallax>Projects</h2>
+        <div class="glass-grid">
+
+          <div class="proj-flip">
+            <div class="proj-flip__inner">
+              <div class="proj-flip__front">
+                <div class="proj-flip__bg" style="background-image:url('assets/img/cybertron.png')"></div>
+                <div class="proj-flip__overlay"></div>
+                <div class="proj-flip__front-content">
+                  <span class="proj-flip__year">2026</span>
+                  <h3 class="proj-flip__name">CTF CrackBot</h3>
+                  <p class="proj-flip__hint"><i class="ri-refresh-line"></i> <span class="hint-hover">Hover</span><span class="hint-touch">Tap</span> for details</p>
+                </div>
+              </div>
+              <div class="proj-flip__back">
+                <span class="proj-flip__year">2026</span>
+                <h3 class="proj-flip__name">CTF CrackBot</h3>
+                <p class="proj-flip__desc">Multi-agent CTF solver with FastAPI backend. ~89% pass rate across 34+ categories.</p>
+                <div class="proj-flip__tags"><span>FastAPI</span><span>Python</span><span>Cybersecurity</span>
+                  <a href="https://github.com/akash3112" target="_blank" class="proj-flip__link">GitHub <i class="ri-arrow-right-up-line"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-flip proj-flip--featured">
+            <div class="proj-flip__inner">
+              <div class="proj-flip__front">
+                <div class="proj-flip__bg" style="background-image:url('assets/img/NIRAI LOGO .png')"></div>
+                <div class="proj-flip__overlay"></div>
+                <div class="proj-flip__front-content">
+                  <span class="proj-flip__year">2025</span>
+                  <h3 class="proj-flip__name">Nirai Technologies</h3>
+                  <p class="proj-flip__hint"><i class="ri-refresh-line"></i> <span class="hint-hover">Hover</span><span class="hint-touch">Tap</span> for details</p>
+                </div>
+              </div>
+              <div class="proj-flip__back">
+                <span class="proj-flip__year">2025</span>
+                <h3 class="proj-flip__name">Nirai Technologies</h3>
+                <p class="proj-flip__desc">Security-first digital protection for growing teams.</p>
+                <div class="proj-flip__tags">
+                  <span>Security Products</span><span>Product Design</span>
+                  <a href="https://akash3112.github.io/niraitechnologies/" target="_blank" class="proj-flip__link">Visit <i class="ri-arrow-right-up-line"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-flip">
+            <div class="proj-flip__inner">
+              <div class="proj-flip__front">
+                <div class="proj-flip__bg proj-flip__bg--icon"><i class="ri-shopping-cart-2-line"></i></div>
+                <div class="proj-flip__overlay"></div>
+                <div class="proj-flip__front-content">
+                  <span class="proj-flip__year">2024</span>
+                  <h3 class="proj-flip__name">SphereCart</h3>
+                  <p class="proj-flip__hint"><i class="ri-refresh-line"></i> <span class="hint-hover">Hover</span><span class="hint-touch">Tap</span> for details</p>
+                </div>
+              </div>
+              <div class="proj-flip__back">
+                <span class="proj-flip__year">2024</span>
+                <h3 class="proj-flip__name">SphereCart</h3>
+                <p class="proj-flip__desc">Sustainable e-commerce for exchanging and renting fashion and appliances.</p>
+                <div class="proj-flip__tags"><span>Full Stack</span><span>Sustainability</span>
+                  <a href="https://github.com/akash3112" target="_blank" class="proj-flip__link">GitHub <i class="ri-arrow-right-up-line"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-flip">
+            <div class="proj-flip__inner">
+              <div class="proj-flip__front">
+                <div class="proj-flip__bg proj-flip__bg--icon"><i class="ri-restaurant-line"></i></div>
+                <div class="proj-flip__overlay"></div>
+                <div class="proj-flip__front-content">
+                  <span class="proj-flip__year">2025</span>
+                  <h3 class="proj-flip__name">Sri Sai Annapoorani</h3>
+                  <p class="proj-flip__hint"><i class="ri-refresh-line"></i> <span class="hint-hover">Hover</span><span class="hint-touch">Tap</span> for details</p>
+                </div>
+              </div>
+              <div class="proj-flip__back">
+                <span class="proj-flip__year">2025</span>
+                <h3 class="proj-flip__name">Sri Sai Annapoorani</h3>
+                <p class="proj-flip__desc">Bilingual catering website (EN/Tamil) + Python billing app for a Chennai catering business.</p>
+                <div class="proj-flip__tags"><span>Python</span><span>Static Site</span><span>Billing App</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+    </section>
+    <section id="experience" class="section reveal">
+      <div class="wrap">
+        <div class="exp-header">
+          <h2 class="s-title" data-parallax>Experience</h2>
+          <div class="exp-controls">
+            <button class="exp-btn" id="exp-prev" aria-label="Previous"><i class="ri-arrow-left-s-line"></i></button>
+            <span class="exp-counter"><span id="exp-cur">1</span> / <span id="exp-total">4</span></span>
+            <button class="exp-btn" id="exp-next" aria-label="Next"><i class="ri-arrow-right-s-line"></i></button>
+          </div>
+        </div>
+        <div class="exp-track-wrap">
+          <div class="exp-track" id="exp-track">
+
+            <div class="exp-slide glass-panel">
+              <span class="exp-slide__date">Jun 2025</span>
+              <h3 class="exp-slide__title">Cyber Crime Police Station Intern</h3>
+              <p class="exp-slide__org"><i class="ri-building-2-line"></i> Avadi Police Commissionerate, Chennai</p>
+              <p class="exp-slide__desc">Incident response, victim support, digital forensics.</p>
+              <div class="exp-slide__tags"><span>Incident Response</span><span>Digital Forensics</span><span>Cyber Awareness</span></div>
+            </div>
+
+            <div class="exp-slide glass-panel">
+              <span class="exp-slide__date">2025 – Present</span>
+              <h3 class="exp-slide__title">Co-Founder — Nirai Technologies</h3>
+              <p class="exp-slide__org"><i class="ri-building-2-line"></i> Nirai Technologies</p>
+              <p class="exp-slide__desc">Product strategy, security architecture, and client delivery.</p>
+              <div class="exp-slide__tags"><span>Security Products</span><span>Product Strategy</span></div>
+            </div>
+
+            <div class="exp-slide glass-panel">
+              <span class="exp-slide__date">2026</span>
+              <h3 class="exp-slide__title">CTF Web Exploit Sub-Coordinator</h3>
+              <p class="exp-slide__org"><i class="ri-building-2-line"></i> Cyberthon CTF</p>
+              <p class="exp-slide__desc">Designed and coordinated web exploitation challenge flows.</p>
+              <div class="exp-slide__tags"><span>CTF Design</span><span>Web Exploitation</span><span>OWASP</span></div>
+            </div>
+
+            <div class="exp-slide glass-panel">
+              <span class="exp-slide__date">Sep 2025</span>
+              <h3 class="exp-slide__title">Innovation Ambassador — Advanced Level</h3>
+              <p class="exp-slide__org"><i class="ri-building-2-line"></i> MoE Innovation Cell + AICTE</p>
+              <p class="exp-slide__desc">16 sessions, 30+ contact hours in innovation strategy and leadership.</p>
+              <div class="exp-slide__tags"><span>Innovation</span><span>Leadership</span><span>AICTE</span></div>
+            </div>
+
+          </div>
+        </div>
+        <div class="exp-progress"><div class="exp-progress__bar"></div></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section reveal">
+      <div class="wrap">
+        <h2 class="s-title" data-parallax>About</h2>
+        <div class="about-grid">
+          <div class="about-grid__left glass-panel">
+            <p class="about-bio">B.E. CSE (Cyber Security) · New Prince Shri Bhavani College · 2024–2028.<br><br>
+            Ethical hacking, penetration testing, digital forensics, cloud security.</p>
+            <div class="about-links">
+              <a href="https://www.linkedin.com/in/akash-sampath-862151328" target="_blank" class="cta-link magnetic">LinkedIn <i class="ri-linkedin-line"></i></a>
+              <a href="https://github.com/akash3112" target="_blank" class="cta-link cta-link--dim">GitHub <i class="ri-github-line"></i></a>
+            </div>
+            <a href="pages/certificates.html" target="_blank" class="cert-btn-about">
+              <i class="ri-award-fill"></i>
+              <span>View Certifications</span>
+              <i class="ri-arrow-right-up-line cert-btn-about__arrow"></i>
+            </a>
+          </div>
+          <div class="about-grid__right">
+            <div class="glass-panel about-edu">
+              <h3 class="panel-heading">Education</h3>
+              <div class="edu">
+                <div class="edu__item">
+                  <span>2024–28</span>
+                  <div><strong>B.E. CSE (Cyber Security) — CGPA 8.6</strong><em>New Prince Shri Bhavani College of Engineering</em></div>
+                </div>
+                <div class="edu__item">
+                  <span>2022–23</span>
+                  <div><strong>Std 12 — 84.5%</strong><em>MAV Vidyashram, Sembakkam</em></div>
+                </div>
+                <div class="edu__item">
+                  <span>2021–22</span>
+                  <div><strong>Std 10 — 87.7%</strong><em>MAV Vidyashram, Sembakkam</em></div>
+                </div>
+              </div>
+            </div>
+            <div class="glass-panel about-stack">
+              <h3 class="panel-heading">Stack</h3>
+              <div class="stack-groups">
+                <div class="stack-group">
+                  <span class="stack-group__label"><i class="ri-shield-keyhole-line"></i> Cyber Security</span>
+                  <div class="tags">
+                    <span>Wireshark</span><span>Nmap</span><span>Burp Suite</span>
+                    <span>Metasploit</span><span>Kali Linux</span><span>OWASP</span><span>Digital Forensics</span>
+                  </div>
+                </div>
+                <div class="stack-group">
+                  <span class="stack-group__label"><i class="ri-server-line"></i> Backend</span>
+                  <div class="tags">
+                    <span>Python</span><span>Java</span><span>Bash</span>
+                    <span>FastAPI</span><span>Firebase</span><span>MySQL</span><span>C / C#</span>
+                  </div>
+                </div>
+                <div class="stack-group">
+                  <span class="stack-group__label"><i class="ri-layout-line"></i> Frontend</span>
+                  <div class="tags">
+                    <span>React</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Bootstrap</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section reveal">
+      <div class="wrap">
+        <div class="contact-inner">
+          <h2 class="contact-title">Let's build something<br><em>secure</em> together.</h2>
+          <p class="contact-sub">Open to internships, freelance projects, research &amp; CTF team-ups.</p>
+          <div class="contact-links">
+            <a href="mailto:akash050131@gmail.com" class="cta-link">akash050131@gmail.com <i class="ri-send-plane-line"></i></a>
+            <a href="https://www.linkedin.com/in/akash-sampath-862151328" target="_blank" class="cta-link cta-link--dim">LinkedIn <i class="ri-linkedin-line"></i></a>
+            <a href="https://github.com/akash3112" target="_blank" class="cta-link cta-link--dim">GitHub <i class="ri-github-line"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span class="footer-name">Akash S</span>
+      <div class="footer-links">
+        <a href="mailto:akash050131@gmail.com" title="Email"><i class="ri-mail-line"></i></a>
+        <a href="https://github.com/akash3112" target="_blank" title="GitHub"><i class="ri-github-line"></i></a>
+        <a href="https://www.linkedin.com/in/akash-sampath-862151328" target="_blank" title="LinkedIn"><i class="ri-linkedin-line"></i></a>
+        <a href="tel:+919384857111" title="Phone"><i class="ri-phone-line"></i></a>
+      </div>
+      <span class="footer-copy">© 2026 · Built with intent</span>
+    </div>
+  </footer>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>© 2026 Akash S · Cybersecurity Practitioner</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

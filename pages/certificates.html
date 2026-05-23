@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifications | Akash S</title>
+  <link rel="shortcut icon" href="../assets/img/NIRAI LOGO .png" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=IM+Fell+English:ital@0;1&family=Courier+Prime&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    /* ── Certs-page overrides ── */
+    body{ padding-top:0; }
+
+    .certs-bg{
+      position:fixed;inset:0;z-index:0;
+      background:var(--scrim);
+      transition:background var(--t);
+    }
+    [data-theme="dark"]  .certs-bg{ background:rgba(6,2,1,.88) }
+    [data-theme="light"] .certs-bg{ background:rgba(245,228,200,.90) }
+
+    .certs-page{
+      position:relative;z-index:2;
+      width:90%;max-width:108rem;
+      margin-inline:auto;
+      padding:7rem 0 10rem;
+    }
+
+    /* ── Page header ── */
+    .page-hd{
+      display:flex;align-items:flex-end;justify-content:space-between;
+      flex-wrap:wrap;gap:2rem;
+      margin-bottom:5rem;
+      padding-bottom:2.4rem;
+      border-bottom:1px solid var(--rule);
+    }
+    .page-hd h1{
+      font-family:var(--ff-display);
+      font-size:clamp(2.8rem,5vw,4.4rem);
+      font-weight:700;color:var(--accent);
+      letter-spacing:.12em;text-transform:uppercase;
+    }
+    .page-hd p{
+      font-family:var(--ff-mono);
+      font-size:1.1rem;color:var(--text-dim);
+      letter-spacing:.14em;margin-top:.6rem;
+    }
+    .back-link{
+      display:inline-flex;align-items:center;gap:.5rem;
+      font-family:var(--ff-mono);font-size:1.1rem;
+      letter-spacing:.14em;text-transform:uppercase;
+      color:var(--text-dim);transition:color var(--t);
+    }
+    .back-link:hover{color:var(--accent)}
+
+    /* Theme toggle on certs page */
+    .certs-nav{
+      position:fixed;top:0;left:0;right:0;
+      height:6.4rem;
+      background:var(--nav-bg);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--rule);
+      z-index:1000;
+      display:flex;align-items:center;
+      transition:background var(--t);
+    }
+    .certs-nav__inner{
+      width:90%;max-width:108rem;margin-inline:auto;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .certs-nav a{
+      font-family:var(--ff-display);font-size:1.4rem;
+      color:var(--accent);letter-spacing:.18em;
+    }
+
+    /* ── Cert grid ── */
+    .cert-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(28rem,1fr));
+      gap:2.4rem;
+    }
+    .cert-card{
+      position:relative;height:auto;aspect-ratio:4/3;overflow:hidden;
+      background:var(--glass-bg);
+      border:1px solid var(--glass-border);
+      border-top:1px solid var(--glass-shine);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      transition:transform var(--t),box-shadow var(--t),border-color var(--t);
+    }
+    .cert-card:hover{
+      transform:translateY(-5px);
+      border-color:var(--accent);
+      box-shadow:0 12px 40px rgba(0,0,0,.35),0 0 0 1px var(--accent-glow);
+    }
+    .cert-card img{
+      width:100%;height:100%;object-fit:cover;
+      filter:sepia(.35) contrast(1.06) brightness(.85);
+      transition:filter var(--t);
+    }
+    [data-theme="light"] .cert-card img{
+      filter:sepia(.2) contrast(1.04) brightness(.9);
+    }
+    .cert-card:hover img{ filter:sepia(.1) contrast(1.02) brightness(.95) }
+
+    /* Overlay slides up on hover */
+    .cert-overlay{
+      position:absolute;inset:0;
+      background:var(--glass-bg);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border-left:2px solid var(--accent);
+      display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+      padding:3rem;
+      transform:translateY(100%);
+      transition:transform .35s var(--ease);
+    }
+    .cert-card:hover .cert-overlay{ transform:translateY(0) }
+    .cert-overlay h3{
+      font-family:var(--ff-head);font-size:1.75rem;font-weight:600;
+      color:var(--text);letter-spacing:.04em;
+      margin-bottom:.8rem;line-height:1.3;
+    }
+    .cert-overlay p{
+      font-family:var(--ff-body);font-style:italic;font-size:1.35rem;
+      color:var(--text-dim);line-height:1.7;margin-bottom:2rem;
+    }
+    .cert-overlay a{
+      display:inline-flex;align-items:center;gap:.5rem;
+      font-family:var(--ff-mono);font-size:1.1rem;
+      letter-spacing:.14em;text-transform:uppercase;
+      color:var(--accent);position:relative;padding-bottom:.2rem;
+    }
+    .cert-overlay a::after{
+      content:"";position:absolute;bottom:0;left:0;
+      width:100%;height:1px;background:var(--accent);
+    }
+    .cert-overlay a:hover{ opacity:.7 }
+
+    /* ── Bottom actions ── */
+    .cert-actions{
+      margin-top:5rem;padding-top:3.5rem;
+      border-top:1px solid var(--rule);
+      display:flex;align-items:center;gap:2rem;flex-wrap:wrap;
+    }
+    .cert-btn{
+      display:inline-flex;align-items:center;gap:.8rem;
+      font-family:var(--ff-mono);font-size:1.15rem;
+      letter-spacing:.16em;text-transform:uppercase;
+      padding:1.1rem 2.8rem;
+      border:1px solid var(--glass-border);
+      background:var(--glass-bg);
+      backdrop-filter:blur(12px);
+      color:var(--text);
+      transition:border-color var(--t),color var(--t),background var(--t);
+    }
+    .cert-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-glow)}
+    .cert-btn--primary{border-color:var(--accent);color:var(--accent);background:var(--accent-glow)}
+    .cert-btn--primary:hover{background:var(--accent);color:var(--glass-bg)}
+
+    @media(max-width:560px){
+      .cert-grid{grid-template-columns:1fr}
+      .page-hd{flex-direction:column;align-items:flex-start}
+    }
+
+    /* ── CTF Section ── */
+    .ctf-section{
+      margin-top:6rem;padding-top:4rem;
+      border-top:1px solid var(--rule);
+    }
+    .ctf-section__hd{
+      display:flex;align-items:center;gap:1.8rem;margin-bottom:3.2rem;
+    }
+    .ctf-section__icon{
+      width:5.2rem;height:5.2rem;
+      display:grid;place-items:center;
+      background:rgba(200,40,40,.12);
+      border:1px solid rgba(200,40,40,.35);
+      font-size:2.2rem;color:#c82828;flex-shrink:0;
+    }
+    .ctf-section__title{
+      font-family:var(--ff-display);font-size:clamp(2rem,3.5vw,3rem);
+      font-weight:700;color:var(--text);letter-spacing:.10em;text-transform:uppercase;
+    }
+    .ctf-section__sub{
+      font-family:var(--ff-mono);font-size:1.1rem;
+      color:var(--text-dim);letter-spacing:.12em;margin-top:.4rem;
+    }
+    .ctf-card{ border-color:rgba(200,40,40,.25); }
+    .ctf-card:hover{ border-color:#c82828;box-shadow:0 12px 40px rgba(200,40,40,.18),0 0 0 1px rgba(200,40,40,.3); }
+    .ctf-card .cert-overlay{ border-left-color:#c82828; }
+    .ctf-card .cert-overlay a{ color:#c82828; }
+    .ctf-card .cert-overlay a::after{ background:#c82828; }
+    .ctf-grid{ max-width:72rem; }
+
+    /* MS Learn */
+    .mslearn-icon{ background:rgba(0,114,198,.12);border-color:rgba(0,114,198,.35);color:#0072c6; }
+    .mslearn-chevron{ font-size:2rem;color:var(--text-dim);transition:transform .3s; }
+    .mslearn-section.ms-open .mslearn-chevron{ transform:rotate(180deg); }
+    .mslearn-body{ max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.25,.46,.45,.94); }
+    .mslearn-section.ms-open .mslearn-body{ max-height:60rem; }
+    .ms-list{ display:flex;flex-direction:column;gap:.8rem;padding:1.6rem 0; }
+    .ms-item{
+      display:flex;align-items:center;gap:1.2rem;
+      padding:1.2rem 1.6rem;
+      background:var(--glass-bg);
+      border:1px solid var(--glass-border);
+      color:var(--text);text-decoration:none;
+      font-family:var(--ff-mono);font-size:1.2rem;letter-spacing:.05em;
+      transition:border-color var(--t),background var(--t);
+    }
+    .ms-item:hover{ border-color:#0072c6;background:rgba(0,114,198,.08); }
+    .ms-item i:first-child{ color:#0072c6;font-size:1.4rem;flex-shrink:0; }
+    .ms-item span{ flex:1; }
+    .ms-item i:last-child{ color:var(--text-dim);font-size:1.2rem; }
+    .intern-icon{ background:rgba(87,110,151,.15);border-color:rgba(87,110,151,.4);color:#576e97; }
+    .intern-card{ border-color:rgba(87,110,151,.25); }
+    .intern-card:hover{ border-color:#576e97;box-shadow:0 12px 40px rgba(87,110,151,.18),0 0 0 1px rgba(87,110,151,.3); }
+    .intern-card .cert-overlay{ border-left-color:#576e97; }
+    .intern-card .cert-overlay a{ color:#576e97; }
+    .intern-card .cert-overlay a::after{ background:#576e97; }
+  </style>
+</head>
+<body>
+
+  <div class="certs-bg"></div>
+
+  <!-- Mini nav -->
+  <nav class="certs-nav">
+    <div class="certs-nav__inner">
+      <a href="../index.html">A·S</a>
+      <button class="tog" id="tog" aria-label="Toggle theme">
+        <i class="ri-sun-line tog__sun"></i>
+        <span class="tog__pill"><span class="tog__knob"></span></span>
+        <i class="ri-moon-line tog__moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="certs-page" style="padding-top:10rem">
+
+    <div class="page-hd">
+      <div>
+        <h1>Certifications</h1>
+        <p>Achievements &amp; learning milestones</p>
+      </div>
+      <a href="../index.html" class="back-link"><i class="ri-arrow-left-line"></i> Back to Portfolio</a>
+    </div>
+
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <img src="../assets/img/TCS.png" alt="TCS iON">
+        <div class="cert-overlay">
+          <h3>TCS iON Career Edge — Young Professional</h3>
+          <p>Tata Consultancy Services — professional skills &amp; industry readiness certification. September 2024.</p>
+          <a href="#" target="_blank">View Certificate <i class="ri-arrow-right-up-line"></i></a>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="../assets/img/GDG.png" alt="GDG Solution Challenge">
+        <div class="cert-overlay">
+          <h3>GDG on Campus Solution Challenge</h3>
+          <p>Google Developer Groups × Hack2skill — innovative AI-powered idea submission. Certificate ID: 2025H2S01GSC-I00157.</p>
+          <a href="#" target="_blank">View Certificate <i class="ri-arrow-right-up-line"></i></a>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="../assets/img/MSLA-ML.png" alt="Microsoft ML">
+        <div class="cert-overlay">
+          <h3>ML Fundamentals with Azure ML Studio</h3>
+          <p>Microsoft Learn Student Ambassadors — Machine Learning Fundamentals with Azure.</p>
+          <a href="#" target="_blank">View Certificate <i class="ri-arrow-right-up-line"></i></a>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="../assets/img/vit -ethical -hacking.png" alt="Ethical Hacking Workshop">
+        <div class="cert-overlay">
+          <h3>Cyber Security &amp; Ethical Hacking Workshop</h3>
+          <p>National Level Workshop by SENSE — March 2025. Two-day online program.</p>
+          <a href="#" target="_blank">View Certificate <i class="ri-arrow-right-up-line"></i></a>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="../assets/img/kips.jpeg" alt="KIPS Expert Certification">
+        <div class="cert-overlay">
+          <h3>KIPS Expert Certification</h3>
+          <p>Kaspersky Interactive Protection Simulation — Team 3FA. Expert-level cybersecurity strategy &amp; decision-making. March 2026.</p>
+          <a href="#" target="_blank">View Certificate <i class="ri-arrow-right-up-line"></i></a>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="../assets/img/csharp_ms.jpeg" alt="Foundational C# with Microsoft">
+        <div class="cert-overlay">
+          <h3>Foundational C# with Microsoft</h3>
+          <p>freeCodeCamp × Microsoft — Developer Certification. December 9, 2025.</p>
+          <a href="https://freecodecamp.org/certification/akashsampath/foundational-c-sharp-with-microsoft" target="_blank">View Certificate <i class="ri-arrow-right-up-line"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Microsoft Learn Section ── -->
+    <div class="ctf-section mslearn-section">
+      <div class="ctf-section__hd mslearn-toggle" style="cursor:pointer" onclick="this.parentElement.classList.toggle('ms-open')">
+        <div class="ctf-section__icon mslearn-icon"><i class="ri-microsoft-fill"></i></div>
+        <div style="flex:1">
+          <h2 class="ctf-section__title">Microsoft Learn</h2>
+          <p class="ctf-section__sub">9 module completions — Security, AI &amp; GitHub Copilot · Nov 2025 – Feb 2026</p>
+        </div>
+        <i class="ri-arrow-down-s-line mslearn-chevron"></i>
+      </div>
+      <div class="mslearn-body">
+        <div class="ms-list">
+          <a class="ms-item" href="../certs/intro.pdf" target="_blank"><i class="ri-microsoft-fill"></i><span>Introduction to Security, Compliance &amp; Identity</span><i class="ri-arrow-right-up-line"></i></a>
+          <a class="ms-item" href="../certs/basic_of_cyber_sercutiy.pdf" target="_blank"><i class="ri-microsoft-fill"></i><span>Basic Cybersecurity Threats, Attacks &amp; Mitigations</span><i class="ri-arrow-right-up-line"></i></a>
+          <a class="ms-item" href="../certs/authentication_in_cyber.pdf" target="_blank"><i class="ri-microsoft-fill"></i><span>Authentication &amp; Authorization in Cybersecurity</span><i class="ri-arrow-right-up-line"></i></a>
+          <a class="ms-item" href="../certs/cryptography.pdf" target="_blank"><i class="ri-microsoft-fill"></i><span>Concepts of Cryptography</span><i class="ri-arrow-right-up-line"></i></a>
+          <a class="ms-item" href="../certs/network_baed_threats.pdf" target="_blank"><i class="ri-microsoft-fill"></i><span>Network-Based Threats &amp; Mitigations</span><i class="ri-arrow-right-up-line"></i></a>
+          <a class="ms-item" href="../certs/device_threats.pdf" target="_blank"><i class="ri-microsoft-fill"></i><span>Device-Based Threats &amp; Security Controls</span><i class="ri-arrow-right-up-line"></i></a>
+          <a class="ms-item" href="../certs/defender_xdr.pdf" target="_blank"><i class="ri-microsoft-fill"></i><span>Microsoft Defender XDR Threat Protection</span><i class="ri-arrow-right-up-line"></i></a>
+          <a class="ms-item" href="../certs/GITHUB_COPILOT.pdf" target="_blank"><i class="ri-microsoft-fill"></i><span>Introduction to GitHub Copilot</span><i class="ri-arrow-right-up-line"></i></a>
+          <a class="ms-item" href="../certs/resposible_ai_with_git.pdf" target="_blank"><i class="ri-microsoft-fill"></i><span>Responsible AI with GitHub Copilot</span><i class="ri-arrow-right-up-line"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Interns & Roles Section ── -->
+    <div class="ctf-section intern-section">
+      <div class="ctf-section__hd">
+        <div class="ctf-section__icon intern-icon"><i class="ri-briefcase-4-fill"></i></div>
+        <div>
+          <h2 class="ctf-section__title">Interns &amp; Roles</h2>
+          <p class="ctf-section__sub">Field experience, leadership &amp; institutional recognition</p>
+        </div>
+      </div>
+      <div class="cert-grid ctf-grid">
+
+        <div class="cert-card intern-card">
+          <img src="../assets/img/CYBERCRIMEINTERN.png" alt="Cyber Crime Internship">
+          <div class="cert-overlay">
+            <h3>Cyber Crime Police Station — Intern</h3>
+            <p>Avadi Police Commissionerate, Chennai — June 2025. Incident response, victim support, digital evidence documentation.</p>
+            <a href="#" target="_blank">View Certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+        </div>
+
+        <div class="cert-card intern-card">
+          <img src="../assets/img/IA.png" alt="Innovation Ambassador">
+          <div class="cert-overlay">
+            <h3>Innovation Ambassador — Advanced Level</h3>
+            <p>MoE's Innovation Cell &amp; AICTE — 16 sessions, 30+ contact hours, IIC 2024–25.</p>
+            <a href="#" target="_blank">View Certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── CTF Certificates Section ── -->
+    <div class="ctf-section">
+      <div class="ctf-section__hd">
+        <div class="ctf-section__icon"><i class="ri-flag-2-fill"></i></div>
+        <div>
+          <h2 class="ctf-section__title">CTF Participations</h2>
+          <p class="ctf-section__sub">Capture The Flag competitions &amp; cybersecurity challenges</p>
+        </div>
+      </div>
+      <div class="cert-grid ctf-grid">
+
+        <div class="cert-card ctf-card">
+          <img src="../assets/img/ctf_vit.jpeg" alt="VIT CTF">
+          <div class="cert-overlay">
+            <h3>Server Surfers CTF — 4th Place 🏅</h3>
+            <p>ACM Student Chapter, VIT Chennai — web exploitation &amp; forensics. Secured 4th place. March 24, 2026.</p>
+            <a href="#" target="_blank">View Certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+        </div>
+
+        <div class="cert-card ctf-card">
+          <img src="../assets/img/htb_ctf.jpeg" alt="HackTheBox W.T.F 3.0">
+          <div class="cert-overlay">
+            <h3>HackTheBox — W.T.F 3.0 CTF</h3>
+            <p>HackTheBox Chennai Meetup at SRM Institute of Science &amp; Technology — Participant. March 26, 2026.</p>
+            <a href="#" target="_blank">View Certificate <i class="ri-arrow-right-up-line"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="cert-actions">
+      <a href="../certs/AkashS-Certifications.pdf" target="_blank" class="cert-btn cert-btn--primary">
+        <i class="ri-file-pdf-line"></i> All Certifications PDF
+      </a>
+      <a href="../index.html" class="cert-btn">
+        <i class="ri-arrow-left-line"></i> Back to Portfolio
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    // Sync theme from main portfolio
+    const html = document.documentElement;
+    const tog  = document.getElementById("tog");
+    const saved = localStorage.getItem("theme") || "dark";
+    html.setAttribute("data-theme", saved);
+    tog.addEventListener("click", () => {
+      const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    });
+  </script>
+</body>
+</html>
